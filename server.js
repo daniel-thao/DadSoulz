@@ -1,7 +1,7 @@
 require("dotenv").config();
 let express = require("express");
 // let exphbs = require("express-handlebars");
-let db = require("./models");
+let db = require("./Backend/models");
 
 // let sassMiddleware = require("node-sass-middleware");
 let path = require("path");
@@ -19,10 +19,6 @@ app.use(express.json());
 //     dest: path.join(__dirname, "public/styles")
 //   })
 // );
-
-// Handlebars
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
 
 // // Routes
 // require("./routes/apiRoutes")(app);
