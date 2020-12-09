@@ -1,28 +1,22 @@
 require("dotenv").config();
-let express = require("express");
-// let exphbs = require("express-handlebars");
-let db = require("./Backend/models");
+const express = require("express");
+// const exphbs = require("express-handlebars");
+const db = require("./Backend/models");
 
-// let sassMiddleware = require("node-sass-middleware");
-let path = require("path");
+const bodyParser = require("body-parser");
 
-let app = express();
-let PORT = process.env.PORT || 3001;
+// API Routes
+const apiRoutes = require("./Backend/routes");
+
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-// app.use(express.static("public"));
-// app.use(
-//   sassMiddleware({
-//     src: path.join(__dirname, "public/scss"),
-//     dest: path.join(__dirname, "public/styles")
-//   })
-// );
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// // Routes
-// require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
+// Routes
+app.use("/api/user", apiRoutes.User);
 
 let syncOptions = { force: false };
 
