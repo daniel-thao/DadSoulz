@@ -1,0 +1,15 @@
+{
+  "name": "DadSoulz",
+  "version": "1.0.0",
+  "description": "React version of my old app",
+  "main": "server.js",
+  "repository": "git@github.com:daniel-thao/DadSoulz.git",
+  "author": "<daniel.ntaj.thao@gmail.com>",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  }
+}
