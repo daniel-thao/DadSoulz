@@ -7,4 +7,11 @@ const router = express.Router();
 // Bring in the right database model structure
 const db = require("../models");
 
+console.log(db.Users + "");
+router.get("/", (req, res) => {
+    db.Users.find().then(() => {
+        res.send("hello");
+    })
+})
+
 module.exports = router;
