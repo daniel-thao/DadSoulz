@@ -1,5 +1,8 @@
+const router = require("express").Router();
 
-// module.exports = router;
-module.exports = {
-  User: require("./user"),
-};
+
+router.use("/api/user", require("./user"));
+module.exports = router;
+// module.exports = {
+//   User: require("./user"),
+// };

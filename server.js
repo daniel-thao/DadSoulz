@@ -1,13 +1,13 @@
 require("dotenv").config();
 const express = require("express");
 // const exphbs = require("express-handlebars");
-const db = require("./Backend/models");
-
+const db = require("./backend/models");
 const bodyParser = require("body-parser");
 
 // API Routes
-const apiRoutes = require("./Backend/routes");
+const apiRoutes = require("./backend/routes");
 
+// Server
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routes
-app.use("/api/user", apiRoutes.User);
+app.use(apiRoutes);
 
 let syncOptions = { force: false };
 
