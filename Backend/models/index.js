@@ -24,8 +24,7 @@ fs.readdirSync(__dirname)
   .forEach(function (file) {
     const variableName = file.slice(0, file.length - 3);
     const model = require(path.join(__dirname, variableName));
-    model(sequelize, DataTypes);
-    db[model(sequelize, DataTypes).name] = model;
+    db[model(sequelize, DataTypes).name] = model(sequelize, DataTypes);
   });
 
 // this one sync all the models at once in order Synchronously
@@ -36,8 +35,6 @@ async () => {
 Object.keys(db).forEach(function (modelName) {
   if (db[modelName].associate) {
     db[modelName].associate(db);
-  } else {
-    console.log(db[modelName]);
   }
 });
 
