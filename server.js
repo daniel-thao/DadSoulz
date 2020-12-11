@@ -4,7 +4,7 @@ const express = require("express");
 const db = require("./backend/models");
 const bodyParser = require("body-parser");
 
-// API Routes
+// Bring in the API Routes
 const apiRoutes = require("./backend/routes");
 
 // Server
@@ -24,6 +24,11 @@ let syncOptions = { force: false };
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
+}
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
 
 db.sequelize.sync(syncOptions).then(function() {
